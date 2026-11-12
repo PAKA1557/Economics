@@ -23,14 +23,14 @@ nid[0]+=1
 sh=[f'<p:sp><p:nvSpPr><p:cNvPr id="{nid[0]}" name="목차 패널"/><p:cNvSpPr/><p:nvPr/></p:nvSpPr><p:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="{E(4.3)}" cy="6858000"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:solidFill><a:srgbClr val="{INK}"/></a:solidFill><a:ln><a:noFill/></a:ln></p:spPr><p:txBody><a:bodyPr/><a:lstStyle/><a:p><a:endParaRPr lang="ko-KR" altLang="en-US"/></a:p></p:txBody></p:sp>']
 sh.append(box('목차 제목',0.889,0.75,3.3,0.75,para('Contents',3600,WH,True)))
 sh.append(box('목차 조명',0.889,6.45,3.0,0.4,para('소비자의 권리 · 1조',1100,LG)))
+ROWY=[1.0,2.85,4.7]  # 01·04 and 02·05 share a row
 for col,x in (((0,1,2),5.2),((3,4),9.2)):
-    y=1.0
-    for i in col:
+    for k,i in enumerate(col):
+        y=ROWY[k]
         n,name,subs=S[i]
         sh.append(box(f'목차 {n} 번호',x,y,0.55,0.4,para(n,1900,OR,True)))
         sh.append(box(f'목차 {n} 항목',x+0.55,y,3.4,0.4,para(name,1900,INK,True)))
         sh.append(box(f'목차 {n} 하위',x+0.55,y+0.5,3.2,len(subs)*0.3,bullets(subs),'t'))
-        y+=0.5+len(subs)*0.3+0.45
 sp=f'{un}/ppt/slides/slide25.xml'
 d=open(sp,encoding='utf8').read()
 head=d[:d.index('<p:spTree>')]
