@@ -22,7 +22,6 @@ def bullets(items):
 nid[0]+=1
 sh=[f'<p:sp><p:nvSpPr><p:cNvPr id="{nid[0]}" name="목차 패널"/><p:cNvSpPr/><p:nvPr/></p:nvSpPr><p:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="{E(4.3)}" cy="6858000"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:solidFill><a:srgbClr val="{INK}"/></a:solidFill><a:ln><a:noFill/></a:ln></p:spPr><p:txBody><a:bodyPr/><a:lstStyle/><a:p><a:endParaRPr lang="ko-KR" altLang="en-US"/></a:p></p:txBody></p:sp>']
 sh.append(box('목차 제목',0.889,0.75,3.3,0.75,para('Contents',3600,WH,True)))
-sh.append(box('목차 조명',0.889,6.45,3.0,0.4,para('소비자의 권리 · 1조',1100,LG)))
 ROWY=[1.0,2.85,4.7]  # 01·04 and 02·05 share a row
 for col,x in (((0,1,2),5.2),((3,4),9.2)):
     for k,i in enumerate(col):
